@@ -2,9 +2,11 @@ import requests
 import json
 import sys
 
+API_KEY = 'MW9S-E7SL-26DU-VV8V'
+
 
 def get_stations():
-    r = requests.get('http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y')
+    r = requests.get('http://api.bart.gov/api/stn.aspx?cmd=stns&key='+API_KEY+'&json=y')
     j = json.loads(r.text)
     stations = {s['name']: s['abbr'] for s in j['root']['stations']['station']}
     return stations
