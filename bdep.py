@@ -14,7 +14,7 @@ def get_stations():
 
 def get_departures(abbr, name):
     try:
-        r = requests.get('http://api.bart.gov/api/etd.aspx?cmd=etd&orig='+abbr+'&key=MW9S-E7SL-26DU-VV8V&json=y')
+        r = requests.get('http://api.bart.gov/api/etd.aspx?cmd=etd&orig='+abbr+'&key='+API_KEY+'&json=y')
         j = json.loads(r.text)
 
         print('Trains from '+name+' station:\n')
